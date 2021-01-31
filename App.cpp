@@ -6,6 +6,6 @@
 using namespace W3Geek;
 using namespace std;
 
-void App::sayHello() {
-	cout << "Hello, world!" << endl;
+void App::sayHello(string user) {
+	cout << "Hello, " << user << "!" << endl;
 }

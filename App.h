@@ -7,6 +7,6 @@ using namespace std;
 namespace W3Geek {
 	class App {
 		public:
-			void sayHello();
+			void sayHello(string user = "world");
 	};
 }

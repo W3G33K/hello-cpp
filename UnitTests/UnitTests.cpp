@@ -35,6 +35,16 @@ namespace UnitTests {
 
 				Assert::AreEqual(expectedOutput, actualOutput);
 			}
+
+			TEST_METHOD(TestHelloTodd) {
+				App app;
+				app.sayHello("Todd Howard");
+
+				string expectedOutput = "Hello, Todd Howard!\n";
+				string actualOutput = m_testOutputBuffer.str();
+
+				Assert::AreEqual(expectedOutput, actualOutput);
+			}
 		private:
 			stringstream m_testOutputBuffer;
 			streambuf* m_prevOutputBuffer;
