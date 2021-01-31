@@ -8,6 +8,8 @@
 using namespace W3Geek;
 using namespace std;
 
+const string App::DEFAULT_USER = "world";
+
 void App::sayHello(string user) {
 	const char *name = user.c_str();
 	const char *format = "Hello, %s!";
