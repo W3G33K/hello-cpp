@@ -1,11 +1,10 @@
 #include "App.h"
 
 using namespace W3Geek;
-using namespace std;
 
-int main() {
+int main(int argc, char *argv[]) {
 	App app;
-	app.sayHello();
+	app.run(argc, argv);
 
 	return 0;
 }

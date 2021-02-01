@@ -7,6 +7,8 @@ using namespace std;
 namespace W3Geek {
 	class App {
 		public:
-			void sayHello();
+			void run(int argc = 0, char *argv[] = {});
+		private:
+			string* _processUser(int argc = 0, char* argv[] = {});
 	};
 }
