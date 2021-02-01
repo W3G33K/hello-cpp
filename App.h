@@ -7,8 +7,8 @@ using namespace std;
 namespace W3Geek {
 	class App {
 		public:
-			static const string DEFAULT_USER;
-
-			void sayHello(string user = DEFAULT_USER);
+			void run(int argc = 0, char *argv[] = {});
+		private:
+			string* _processUser(int argc = 0, char* argv[] = {});
 	};
 }

@@ -1,25 +1,21 @@
 #include "App.h"
+#include "Greeter.h"
 
-#include <iostream>
-#include <stdexcept>
-#include <stdio.h>
 #include <string>
 
 using namespace W3Geek;
-using namespace std;
 
-const string App::DEFAULT_USER = "world";
+void App::run(int argc, char* argv[]) {
+	string *userptr = _processUser(argc, argv);
+	Greeter greeter;
+	greeter.greet(userptr);
+}
 
-void App::sayHello(string user) {
-	const char *name = user.c_str();
-	const char *format = "Hello, %s!";
-	int length = (snprintf(nullptr, 0, format, name) + 1); // Extra space for '\0' (NULL Termination Character)
-	if (length <= 0) {
-		throw runtime_error("Error occured during formating.");
+string* App::_processUser(int argc, char* argv[]) {
+	string *user = nullptr;
+	if (argc > 1) {
+		*user = argv[1];
 	}
 
-	char *buffer = new char[length];
-	snprintf(buffer, length, format, name);
-	string message = string(buffer, (length - 1)); // Remove '\0'
-	cout << message << endl;
+	return user;
 }

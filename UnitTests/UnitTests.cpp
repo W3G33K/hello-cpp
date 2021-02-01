@@ -5,7 +5,7 @@
 #include <sstream>
 #include <string>
 
-#include "..\App.h"
+#include "..\Greeter.h"
 
 using namespace W3Geek;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -22,13 +22,9 @@ namespace UnitTests {
 				cout.rdbuf(m_prevOutputBuffer);
 			}
 
-			TEST_METHOD(TestItJustWorks) {
-				Assert::AreNotEqual(true, false);
-			}
-
-			TEST_METHOD(TestHello) {
-				App app;
-				app.sayHello();
+			TEST_METHOD(TestGreet) {
+				Greeter greeter;
+				greeter.greet();
 
 				string expectedOutput = "Hello, world!\n";
 				string actualOutput = m_testOutputBuffer.str();
@@ -36,11 +32,24 @@ namespace UnitTests {
 				Assert::AreEqual(expectedOutput, actualOutput);
 			}
 
-			TEST_METHOD(TestHelloTodd) {
-				App app;
-				app.sayHello("Todd Howard");
+			TEST_METHOD(TestGreetTodd) {
+				string user = "Todd Howard";
+				string *userptr = &user;
+
+				Greeter greeter;
+				greeter.greet(userptr);
 
 				string expectedOutput = "Hello, Todd Howard!\n";
+				string actualOutput = m_testOutputBuffer.str();
+
+				Assert::AreEqual(expectedOutput, actualOutput);
+			}
+
+			TEST_METHOD(TestGreetNull) {
+				Greeter greeter;
+				greeter.greet(nullptr);
+
+				string expectedOutput = "Hello, world!\n";
 				string actualOutput = m_testOutputBuffer.str();
 
 				Assert::AreEqual(expectedOutput, actualOutput);
